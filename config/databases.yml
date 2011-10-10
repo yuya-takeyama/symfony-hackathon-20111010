@@ -5,6 +5,9 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=blog
-      username: root
-      password: 
+      dsn:      mysql:host=localhost;dbname=blog_20111010
+      username: yuya
+      password: yuya
+      attributes:
+        default_table_charset: utf8
+        default_table_collate: utf8_unicode_ci
