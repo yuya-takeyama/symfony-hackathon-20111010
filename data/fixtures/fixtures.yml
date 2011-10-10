@@ -1,17 +1,12 @@
-# # Populate this file with data to be loaded by your ORM's *:data-load task.
-# # You can create multiple files in this directory (i.e. 010_users.yml,
-# # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
-# # See documentation for your ORM's *:data-load task for more information.
-# 
-# User:
-#   fabien:
-#     username: fabien
-#     password: changeme
-#     name:     Fabien Potencier
-#     email:    fabien.potencier@symfony-project.com
-#   kris:
-#     username: Kris.Wallsmith
-#     password: changeme
-#     name:     Kris Wallsmith
-#     email:    kris.wallsmith@symfony-project.com
+Post:
+  post1:
+    title: タ<b>イ</b>トル
+    body:  これは、<br />記事の本文です。
+
+  post2:
+    title: またタイトル
+    body:  そこに本文が続きます。
+
+  post3:
+    title: タイトルの逆襲
+    body:  こりゃ本当に面白そう！うそ。
