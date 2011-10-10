@@ -6,6 +6,10 @@ homepage:
   url:   /
   param: { module: post, action: index }
 
+post_with_specific_style:
+  url:   /:style/post/:action/*
+  param: { module: post }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
