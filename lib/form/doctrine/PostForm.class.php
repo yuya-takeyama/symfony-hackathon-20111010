@@ -10,7 +10,8 @@
  */
 class PostForm extends BasePostForm
 {
-  public function configure()
-  {
-  }
+    public function configure()
+    {
+        $this->useFields(array('id', 'title', 'body'));
+    }
 }

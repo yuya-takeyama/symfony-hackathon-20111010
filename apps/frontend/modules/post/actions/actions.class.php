@@ -19,4 +19,22 @@ class postActions extends sfActions
     {
         $this->posts = Doctrine_Core::getTable('Post')->findAll();
     }
+
+    /**
+     * Executes new action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeNew(sfWebRequest $request)
+    {
+        $this->form = new PostForm;
+        if ($request->isMethod(sfRequest::POST)) {
+            $this->form->bind($request->getParameter($this->form->getName()));
+        }
+        if ($this->form->isValid()) {
+            $this->form->save();
+            $this->getUser()->setFlash('info', 'データを保存しました。');
+            $this->redirect('post/index');
+        }
+    }
 }
