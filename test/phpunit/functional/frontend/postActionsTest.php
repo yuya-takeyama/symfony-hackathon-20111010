@@ -22,7 +22,7 @@ class functional_frontend_postActionsTest extends sfPHPUnitBaseFunctionalTestCas
 
       with('response')->begin()->
         isStatusCode(200)->
-        checkElement('body', '!/This is a temporary page/')->
+        checkElement('body', '/Blog posts/')->
       end()
     ;
   }
