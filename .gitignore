@@ -1,0 +1,4 @@
+*.swp
+cache/*
+log/*
+web/uploads/*
