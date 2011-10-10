@@ -17,6 +17,11 @@ class postActions extends sfActions
      */
     public function executeIndex(sfWebRequest $request)
     {
+        $style = $request->getParameter('style');
+        if (isset($style)) {
+            $this->setLayout("layout/{$style}");
+            $this->setTemplate("{$style}/index");
+        }
         $this->posts = Doctrine_Core::getTable('Post')->findAll();
     }
 
