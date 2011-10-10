@@ -39,6 +39,28 @@ class postActions extends sfActions
     }
 
     /**
+     * Executes edit action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeEdit(sfWebRequest $request)
+    {
+        $id = $request->getParameter('id');
+        $this->forward404Unless($id);
+        $this->form = new PostForm(
+            Doctrine_Core::getTable('Post')->findOneById($id)
+        );
+        if ($request->isMethod(sfRequest::PUT)) {
+            $this->form->bind($request->getParameter($this->form->getName()));
+            if ($this->form->isValid()) {
+                $this->form->save();
+                $this->getUser()->setFlash('info', 'データを更新しました。');
+                $this->redirect('post/index');
+            }
+        }
+    }
+
+    /**
      * Executes delete action
      *
      * @param sfRequest $request A request object
