@@ -37,4 +37,22 @@ class postActions extends sfActions
             $this->redirect('post/index');
         }
     }
+
+    /**
+     * Executes delete action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeDelete(sfWebRequest $request)
+    {
+        $id = $request->getParameter('id');
+        $this->forward404Unless($id);
+        Doctrine_Query::create()
+            ->delete()
+            ->from('Post p')
+            ->where('p. id = ?', $id)
+            ->execute();
+        $this->getUser()->setFlash('info', 'データを削除しました。');
+        $this->redirect('post/index');
+    }
 }
