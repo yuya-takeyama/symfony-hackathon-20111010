@@ -81,7 +81,7 @@ class sfJpMobile
   private static function _checkCarrier($patterns)
   {
     include sfContext::getInstance()->getConfigCache()->checkConfig('config/jpmobile/istyle.yml');
-    if (!($ua = getenv('HTTP_USER_AGENT'))) {
+    if (!($ua = $_SERVER['HTTP_USER_AGENT'])) {
       throw new sfMobileNotDetermineException('May be access from PC Browser.');
     }
     if (!is_array($patterns)) {

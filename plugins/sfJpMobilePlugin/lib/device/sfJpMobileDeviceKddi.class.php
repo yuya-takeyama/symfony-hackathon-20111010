@@ -16,7 +16,7 @@ class sfJpMobileDeviceKddi extends sfJpMobileDevice
   }
   public function parse()
   {
-    if ($ua = getenv('HTTP_USER_AGENT')) {
+    if ($ua = $_SERVER['HTTP_USER_AGENT']) {
       if (preg_match('/^.+?-([^\s]+)/', $ua, $matches)) {
         $this->_deviceId = $matches[1];
       }

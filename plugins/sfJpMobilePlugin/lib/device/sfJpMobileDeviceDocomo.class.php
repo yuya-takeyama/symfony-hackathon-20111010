@@ -22,7 +22,7 @@ class sfJpMobileDeviceDocomo extends sfJpMobileDevice
   }
   public function parse()
   {
-    if ($ua = getenv('HTTP_USER_AGENT')) {
+    if ($ua = $_SERVER['HTTP_USER_AGENT']) {
       if (preg_match('#^DoCoMo/[12]\.0[/\s]([^/(]+)#', $ua, $matches)) {
         $this->_deviceId = $matches[1];
         return null;

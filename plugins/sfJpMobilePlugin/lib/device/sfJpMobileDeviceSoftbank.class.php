@@ -18,7 +18,7 @@ class sfJpMobileDeviceSoftbank extends sfJpMobileDevice
   }
   public function parse()
   {
-    if ($ua = getenv('HTTP_USER_AGENT')) {
+    if ($ua = $_SERVER['HTTP_USER_AGENT']) {
       if (preg_match('!^MOT-([^/]+)!', $ua, $matches)) {
         $this->_deviceId = $matches[1];
       } else if (preg_match('!^.+?/.+?/([^/]+)!', $ua, $matches)) {
